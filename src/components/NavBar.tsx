@@ -5,8 +5,8 @@ import { NavBarContainer } from "../style";
 const NavBar = () => {
   return (
     <NavBarContainer>
-      <NavLink  to="/ukraine/">Ukraine</NavLink>
-      <NavLink  to="/world/">World</NavLink>
+      <NavLink  to="/ukraine/">Ukraine S</NavLink>
+      <NavLink  to="/world/">World S</NavLink>
     </NavBarContainer>
   );
 };
