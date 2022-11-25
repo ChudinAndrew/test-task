@@ -1,14 +1,10 @@
-import { connect, useDispatch, useSelector } from "react-redux";
-import { useEffect, FC } from "react";
+import { FC, useEffect } from "react";
+import {  useDispatch, useSelector } from "react-redux";
 import { Paragraph, StatisticItem, StatisticWrapper, Title } from "../../style";
-import { fetchData } from "./store/actions";
 import Preloader from "../preloader";
 import { RootState } from "../../redux/redux-store";
 
-// import { helloSaga } from "../redux/sagas";
-
-const World: FC = () => {
-  const dispatch = useDispatch();
+const Statistic: FC = () => {
   const {
     newConfirmed,
     totalConfirmed,
@@ -16,23 +12,24 @@ const World: FC = () => {
     isLoading,
     newDeaths,
     totalDeaths,
-  } = useSelector(({ world }: RootState) => ({
-    newConfirmed: world.newConfirmed,
-    totalConfirmed: world.totalConfirmed,
-    error: world.error,
-    isLoading: world.isLoading,
-    newDeaths: world.newDeaths,
-    totalDeaths: world.totalDeaths,
+    country
+  } = useSelector(({ country }: RootState) => ({
+    newConfirmed: country?.newConfirmed,
+    totalConfirmed: country?.totalConfirmed,
+    error: country?.error,
+    isLoading: country?.isLoading,
+    newDeaths: country?.newDeaths,
+    totalDeaths: country?.totalDeaths,
+    country:country.country,
   }));
-
   useEffect(() => {
-    dispatch(fetchData());
   }, []);
   return (
     <>
       {isLoading ? (
         <div>
-          <Preloader />
+          {" "}
+          <Preloader />{" "}
         </div>
       ) : (
         <div>
@@ -40,7 +37,7 @@ const World: FC = () => {
             <Title>{error}</Title>
           ) : (
             <>
-              <Title>World Statistic by COVID-19</Title>
+              <Title>{country} Statistic by COVID-19</Title>
               <StatisticWrapper>
                 <StatisticItem>
                   <Paragraph> New Confirmed </Paragraph>
@@ -56,7 +53,7 @@ const World: FC = () => {
                 </StatisticItem>
                 <StatisticItem>
                   <Paragraph> Total Deaths </Paragraph>
-                  <div>{totalDeaths}</div>
+                  <div> {totalDeaths}</div>
                 </StatisticItem>
               </StatisticWrapper>
             </>
@@ -67,14 +64,5 @@ const World: FC = () => {
   );
 };
 
-// const mapStateToProps = (state: any) => {
-//   return {
-//     world: state.world,
-//   };
-// };
 
-// const mapDispatchToProps = (dispatch: any) => {
-//   return {};
-// };
-
-export default World;
+export default Statistic;

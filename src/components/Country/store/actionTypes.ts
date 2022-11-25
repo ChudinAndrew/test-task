@@ -1,0 +1,5 @@
+export enum countryTypes {
+  SET_DATA = "COUNTRY_SET_DATA",
+  FETCH_DATA = "COUNTRY_FETCH_DATA",
+  ERROR_DATA = "COUNTRY_ERROR_DATA",
+}

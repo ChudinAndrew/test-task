@@ -1,15 +1,12 @@
-import React from "react"
 import { applyMiddleware, combineReducers, createStore } from "redux"
-import worldReducer from "../components/World/store/reducer"
 import createSagaMiddleware from "redux-saga"
-import ukraineReducer from "../components/Ukraine/store/reducer";
 import { helloSaga } from "./rootSaga";
+import countryReducer from "../components/Country/store/reducer";
 
 const sagaMiddlware = createSagaMiddleware();
 
 const reducers = combineReducers({
-    world:worldReducer,
-    ukraine:ukraineReducer
+    country:countryReducer
 })
 
 const store = createStore(reducers, applyMiddleware(sagaMiddlware));

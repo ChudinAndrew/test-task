@@ -82,3 +82,11 @@ export const Button = styled.button`
   background-color: black;
   color: white;
 `;
+export const ItemSelect = styled.select`
+width: 100px;
+height: 30px;
+  background-color: black;
+  color: white;
+  border: 3px solid grey;
+`;
+
