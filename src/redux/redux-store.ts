@@ -15,5 +15,7 @@ const reducers = combineReducers({
 const store = createStore(reducers, applyMiddleware(sagaMiddlware));
 sagaMiddlware.run(helloSaga);
 
+export type RootState = ReturnType<typeof reducers>
+
 
 export default store;

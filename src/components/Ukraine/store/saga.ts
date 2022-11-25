@@ -19,8 +19,11 @@ function* fetchUkraineData() {
         totalDeaths: result[0].TotalDeaths,
       },
     });
-  } catch (error) {
-    console.log(error);
+  } catch (error:any) {
+    yield put ({
+      type: ukraineTypes.ERROR_DATA,
+      error: error.message
+    })
   }
 }
   export default function* ukraineSaga() {

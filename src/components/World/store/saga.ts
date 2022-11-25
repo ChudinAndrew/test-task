@@ -7,6 +7,7 @@ import { IWorldResponce } from './types';
 function* fetchWorldData() {
     try {
       const response: IWorldResponce = yield call(getStatistic);
+      if (response.data)
       yield put({
         type: worldTypes.SET_DATA,
         data: {
@@ -16,8 +17,14 @@ function* fetchWorldData() {
           totalDeaths: response.data.Global.TotalDeaths,
         },
       });
-    } catch (error) {
-      console.log(error);
+    } catch (error:any) {
+  
+      
+      yield put ({
+        type: worldTypes.ERROR_DATA,
+        error: error.message
+      })
+      
     }
   }
   export default function* worldSaga() {

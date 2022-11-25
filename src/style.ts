@@ -61,19 +61,18 @@ export const Paragraph = styled.div`
   margin-right: 15px;
   margin-left: 15px;
 `;
-export const DIV = styled.div`
-  font-family: "Courier New", Courier, monospace;
-  display: block;
-`;
+export const PreloaderWrapper = styled.div`
+  text-align:center;
+  `;
 
 export const ButtonWrapper = styled.div`
   text-align: center;
 `;
 export const StatisticItem = styled.div`
   margin-top: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: flex-end;
 `;
 export const Button = styled.button`

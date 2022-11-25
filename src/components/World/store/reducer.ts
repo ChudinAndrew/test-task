@@ -25,9 +25,11 @@ const worldReducer = (state = initialState, action: any) => {
         isLoading: true,
       };
     case worldTypes.ERROR_DATA:
+      console.log(action);
+      
       return {
         ...state,
-        ...action.error,
+        error: action.error,
         isLoading: false,
       };
 
